@@ -1,5 +1,10 @@
-
 Docs: Summary of the Music Memory Game Documents
+
+SETUP: The game automatically sets itself up for play(shuffling and distributing cards) upon page load.  To start, click the "Play Game" button on top banner.
+
+TO PLAY: Select pairs of cards to try to make matches.  If the match is successful, cards stay face up. If the match is unsuccessful, they flip back over automatically. The point is to get the matches with the least amount of attempts.  User can also challenge themself with time, but that does not affect rating levels.
+
+This game is currently limited to the 8 card options.  Additional decks of cards could be eventually created and integrated into the code.
 
 Folder contains
 
