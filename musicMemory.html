@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Maji's Music Matching Game</title>
+    <meta name="description" content="">
+    <link rel="stylesheet prefetch" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    <link rel="stylesheet prefetch" href="https://fonts.googleapis.com/css?family=Coda">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="musicMemory.css">
+    <script src="musicMemory.js"></script>
+    <script src="musicTurtle.js"></script>
+
+</head>
+
+<body onload="record()">
+  <div class="container">
+    <h1>Music Matching Game</h1>
+    <div class="sixCellRow">
+      <div class="bufferfarLeftCell">
+      </div>
+      <div class="farLeftCell">
+        <canvas id="canvas" width="100" height="100" class="canvas">
+                    This text is displayed if your browser does not support HTML5 Canvas.
+        </canvas>
+          <script>const my_canvas=document.getElementById("canvas")</script>
+          <script>const context = my_canvas.getContext("2d")</script>
+          <span id="tries" class="moves" > </span>
+          <span>Tries</span>
+      </div>
+      <div class="secondFromLeft">
+        <button id="startTheGame" onclick=startGame() class="buttonDisappearing" >Play Game</button>
+        <button onclick="location.reload();" class="button">Refresh Game</button><br>
+      </div>
+      <div class="middleCell">
+        <span id='timerMinutes' font-size="large" font-weight="bold"> </span>
+        <span>Minutes</span><br>
+        <script>const timerDom =  document.getElementById("timer")</script>
+        <span id='timerSeconds' font-size="large" font-weight="bold"> </span>
+        <span>Seconds</span>
+      </div>
+      <div class="farRightCell">
+        <canvas id="canvas2" width="100" height="100" class="canvas">
+                This text is displayed if your browser does not support HTML5 Canvas.
+        <script>boombox()</script>
+        </canvas>
+      </div>
+      <div class="bufferfarRightCell" >
+        <div id="starContainer" display="flex">
+          <div id="star1" display="inline-block"><img src="goldStar.png" alt="1 Star" class="stars"></div>
+          <div id="star2" display="inline-block"><img src="goldStar.png" alt="2 Stars" class="stars"></div>
+          <div id="star3" display="inline-block"><img src="goldStar.png" alt="3 Star" class="stars"></div>
+        </div>
+      </div>
+  </div>
+
+  <div id="instruction" display=flex>
+    <div display = "inline-block" width = "15%">
+      <span>Instructions:</span>
+    </div>
+    <div display = "inline-block" width = "70%" font-size = "24px" font-style= "italic">
+          To start the timer, click the "Play Game" button. Use your mouse or touchscreen to select one card at a time to flip and make pairs.</span>
+          Matched pairs will stay face-up. Try to reach<h2> Triple Gold Record level!</h2>
+    </div>
+  </div>
+
+  <script>shuffle(this.musicCardList)</script>
+
+
+  <div id="gridContainer" >
+  <div class= "gridRow" id="gridRow1">
+      <div class = "bufferLeftCell"></div>
+      <div class = "firstCell"   id = "cell1"><span id="span1"  ></span></div>
+      <div class = "secondCell"  id = "cell2"><span id="span2" ></span></div>
+      <div class = "thirdCell"   id = "cell3"><span id="span3" ></span></div>
+      <div class = "fourthCell"  id = "cell4"><span id="span4" ></span></div>
+      <div class = "bufferRightCell"></div>
+  </div>
+  <div class = "clearLeft"></div>
+
+  <div class= "gridRow" id="gridRow2">
+      <div class = "bufferLeftCell"></div>
+      <div class = "firstCell"  id = "cell5" ><span></span></div>
+      <div class = "secondCell" id = "cell6"><span></span></div>
+      <div class = "thirdCell"  id = "cell7"><span></span></div>
+      <div class = "fourthCell" id = "cell8"><span></span></div>
+      <div class = "bufferRightCell"></div>
+  </div>
+  <div class = "clearLeft"></div>
+
+  <div class= "gridRow" id="gridRow3">
+      <div class = "bufferLeftCell"></div>
+      <div class = "firstCell"  id = "cell9" ><span></span></div>
+      <div class = "secondCell" id = "cell10"><span></span></div>
+      <div class = "thirdCell"  id = "cell11"><span></span></div>
+      <div class = "fourthCell" id = "cell12"><span></span></div>
+      <div class = "bufferRightCell"></div>
+  </div>
+  <div class = "clearLeft"></div>
+  <div class= "gridRow" id="gridRow4">
+      <div class = "bufferLeftCell"></div>
+      <div class = "firstCell"  id = "cell13"><span></span></div>
+      <div class = "secondCell" id = "cell14"><span></span></div>
+      <div class = "thirdCell"  id = "cell15"><span></span></div>
+      <div class = "fourthCell" id = "cell16"><span></span></div>
+      <div class = "bufferRightCell"></div>
+  </div>
+
+  <!-- Scripts to place the cards where they go and to add event listener triggers for when they are selected -->
+  <!-- cellClickX qualifies which specific entity was clicked -->
+  <!-- "Check_card_set_picked_list is function in javascript file to launch the matching of selected cards" -->
+  <!-- Would have preferred to put constiables and scripts below in javascript file but they would not work when done so. -->
+
+  <script>fill(this.musicCardList)</script>
+    <script>const cellClick1 = document.getElementById("pic0")</script>
+    <script>cellClick1.addEventListener("click", _this=cellClick1, false)</script>
+    <script>cellClick1.addEventListener("click", check_card_set_picked_list, false)</script>
+   <script>const cellClick2 = document.getElementById("pic1")</script>
+   <script>cellClick2.addEventListener("click", _this=cellClick2, false)</script>
+   <script>cellClick2.addEventListener("click", check_card_set_picked_list, false)</script>
+   <script>const cellClick3 = document.getElementById("pic2")</script>
+   <script>cellClick3.addEventListener("click", _this=cellClick3, false)</script>
+   <script>cellClick3.addEventListener("click", check_card_set_picked_list, false)</script>
+   <script>const cellClick4 = document.getElementById("pic3")</script>
+   <script>cellClick4.addEventListener("click", _this=cellClick4, false)</script>
+   <script>cellClick4.addEventListener("click", check_card_set_picked_list, false)</script>
+   <script>const cellClick5 = document.getElementById("pic4")</script>
+   <script>cellClick5.addEventListener("click", _this=cellClick5, false)</script>
+   <script>cellClick5.addEventListener("click", check_card_set_picked_list, false)</script>
+   <script>const cellClick6 = document.getElementById("pic5")</script>
+   <script>cellClick6.addEventListener("click", _this=cellClick6, false)</script>
+   <script>cellClick6.addEventListener("click", check_card_set_picked_list, false)</script>
+   <script>const cellClick7 = document.getElementById("pic6")</script>
+   <script>cellClick7.addEventListener("click", _this=cellClick7, false)</script>
+   <script>cellClick7.addEventListener("click", check_card_set_picked_list, false)</script>
+   <script>const cellClick8 = document.getElementById("pic7")</script>
+   <script>cellClick8.addEventListener("click", _this=cellClick8, false)</script>
+   <script>cellClick8.addEventListener("click", check_card_set_picked_list, false)</script>
+   <script>const cellClick9 = document.getElementById("pic8")</script>
+   <script>cellClick9.addEventListener("click", _this=cellClick9, false)</script>
+   <script>cellClick9.addEventListener("click", check_card_set_picked_list, false)</script>
+   <script>const cellClick10 = document.getElementById("pic9")</script>
+   <script>cellClick10.addEventListener("click", _this=cellClick10, false)</script>
+   <script>cellClick10.addEventListener("click", check_card_set_picked_list, false)</script>
+   <script>const cellClick11 = document.getElementById("pic10")</script>
+   <script>cellClick11.addEventListener("click", _this=cellClick11, false)</script>
+   <script>cellClick11.addEventListener("click", check_card_set_picked_list, false)</script>
+   <script>const cellClick12 = document.getElementById("pic11")</script>
+   <script>cellClick12.addEventListener("click", _this=cellClick12, false)</script>
+   <script>cellClick12.addEventListener("click", check_card_set_picked_list, false)</script>
+   <script>  const cellClick13 = document.getElementById("pic12")</script>
+   <script>cellClick13.addEventListener("click", _this=cellClick13, false)</script>
+   <script>cellClick13.addEventListener("click", check_card_set_picked_list, false)</script>
+   <script>const cellClick14 = document.getElementById("pic13")</script>
+   <script>cellClick14.addEventListener("click", _this=cellClick14, false)</script>
+   <script>cellClick14.addEventListener("click", check_card_set_picked_list, false)</script>
+   <script>const cellClick15 = document.getElementById("pic14")</script>
+   <script>cellClick15.addEventListener("click", _this=cellClick15, false)</script>
+   <script>cellClick15.addEventListener("click", check_card_set_picked_list, false)</script>
+   <script>const cellClick16= document.getElementById("pic15")</script>
+   <script>cellClick16.addEventListener("click", _this=cellClick16, false)</script>
+   <script>cellClick16.addEventListener("click", check_card_set_picked_list, false)</script>
+
+  </div>
+
+
+  <!-- trigger the pop up box for when all the matches have been made-->
+
+  <div id="mpopupBox"  class="mpopup" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <script>const popup = document.getElementById("mpopupBox")</script>
+    <script>popup.setAttribute("style", "none")</script>
+      <!-- mPopup content -->
+    <div class="mpopup-content">
+      <div class="mpopup-head">
+        <span class="close" onclick='popup.style.display = "none"'>×</span>
+        <h2>You Found All The Pairs!</h2>
+      </div>
+      <div class="mpopup-main" >
+        <div class= "modalLeft">Left side<img src="microphoneBlack.png" alt="Microphone falling" class="microphone">
+        </div>
+        <div class="modalMiddle">
+          <div id="triesSection">
+            <span>You finished in a total of</span>
+            <span id="totalTries" style="text-decoration: underline"></span>
+            <span>Tries</span>
+          </div>
+          <div id="modalTimeContainer">
+            <span>It only took you</span>
+            <span id="modalMinutes" ></span>
+            <span>minutes and</span>
+            <span id="modalSeconds"></span>
+            <span>seconds</span>
+          <div>
+          <div id="modalStarLevelContainer">
+            <span>You played at the</span>
+            <span id="starLevel"></span>
+            <div id= "modalStarContainer" display = "flex">
+              <canvas id="modalStar1" class="modalStars" hidden="true"></canvas>
+                <script>const modalStarCanvas1=document.getElementById("modalStar1")</script>
+              <canvas id="modalStar2" class="modalStars" hidden="true">></canvas>
+                <script>const modalStarCanvas2=document.getElementById("modalStar2")</script>
+              <canvas id="modalStar3" class="modalStars" hidden="true">></canvas>
+                <script>const modalStarCanvas3=document.getElementById("modalStar3")</script>
+                <script>goldrecord3()</script>
+            </div>
+          </div>
+          <button onclick="reStartGame()" class="button">Play Again</button>
+          </div>
+
+        <div class="modalRight">
+      </div>
+    </div>
+      <div class="mpopup-foot" display = "block">
+        <p>Maji's Music Matching Game</p>
+        <script>window.onclick = function(event) {if (event.target == popup) {
+                popup.style.display = "none";}}</script>
+      </div>
+    </div>
+  </div>
+  </body>
+</html>
