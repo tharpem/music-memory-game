@@ -47,7 +47,8 @@ let fill = function fill_grid(musicCardList) {
       element.setAttribute("class", "image");
       document.getElementById(cells[cell]).appendChild(element);
       cell++;
-}}
+} document.getElementById("startTheGame").style.setProperty("display", "inline-block");
+}
 
 //Game Sounds
 const needleScratch = document.createElement("AUDIO");
@@ -66,13 +67,14 @@ let check_card_set_picked_list = function check_card_set_picked_list(){
     $(this)[0].setAttribute("src", cardAImage);//turn card over
     trackUnmatchedCardsA();//track dom Id of first card picked
     return card_set_picked;
-  }  if (card_set_picked.length==2){
-    cardB =  $(this)[0];//define card
-    cardBImage = $(this)[0].getAttribute("background-image");//determine face on second card
-    $(this)[0].setAttribute("src", cardBImage);//turn card over
-    setTimeout(card_set_picked.push(cardBImage), 3000);//track face of which card was picked
-    trackUnmatchedCardsB(); //track dom Id of second card picked
-  }
+  } if (card_set_picked.length==2){
+      if ($(this)[0] != cardA.id) {
+      cardB =  $(this)[0];//define card
+      cardBImage = $(this)[0].getAttribute("background-image");//determine face on second card
+      $(this)[0].setAttribute("src", cardBImage);//turn card over
+      setTimeout(card_set_picked.push(cardBImage), 3000);//track face of which card was picked
+      trackUnmatchedCardsB(); //track dom Id of second card picked
+  }}
     trackMoves();//count attempted matches
     compareCards();//compare whether cards were a match
     gameOver();
@@ -99,8 +101,9 @@ let starLevel = "";
 //Star level controls number of stars on top banner
 //Star level on modal control winner level and number of gold records
 const trackMoves = function trackMoves(){
+  if (cardA.id != cardB.id) {//added in case same card is picked multiple times
   tries++;
-  $('#tries').html(tries);
+  $('#tries').html(tries);}
   if (tries <=12){
     starLevel = "Triple Gold Record Level";
     $("#starLevel").html(starLevel);
@@ -213,6 +216,8 @@ let  hours = 0;
 let ignite = "stop";
 let  startTimer = function startTimer(){
   if (ignite == "start"){
+    document.getElementById("startTheGame").removeAttribute("display");
+     document.getElementById("startTheGame").setAttribute("display", "none");
     seconds++;
     calculateTimeMinutes();
     calculateTimeSeconds();}}
@@ -234,10 +239,11 @@ const calculateTimeMinutes= function calculateTimeMinutes(){
 }
 
 //Function that the Play Game button on web page triggers
-//Starts timer
+//Starts timer and makes Play Game button disappear
 //Launches function that allows selection, matching and tracking
 const startGame =function startGame(){
   ignite = "start";
+  document.getElementById("startTheGame").style.setProperty("display", "none")
   setInterval(startTimer, 1000);
   check_card_set_picked_list;
 }

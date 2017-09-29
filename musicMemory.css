@@ -248,6 +248,24 @@ height: 105.33px;
   }
 
 /*Two buttons in top banner and one on modal*/
+/*Button disappearing is for start timer on top banner that disappears upon*/
+/*Game start.  Prevents glitch of time speed or pause*/
+.buttonDisappearing {
+  margin-top: 12px;
+  background-color: #000000;
+  border-radius: 70%;
+  border-width: thick;
+  color: silver;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  float: left;
+  font-weight: bolder;
+  min-width: 100px;
+  font-size: 36px;
+  display: "none" !important;
+}
+
 .button {
   margin-top: 12px;
   background-color: #000000;
@@ -257,12 +275,11 @@ height: 105.33px;
   padding: 15px 32px;
   text-align: center;
   text-decoration: none;
-  display: inline-block;
+  float: left;
   font-weight: bolder;
   min-width: 100px;
   font-size: 36px;
 }
-
 
 /* .mpopup is entire pop up modal. Includes content section*/
 .mpopup {
@@ -371,7 +388,6 @@ height: 105.33px;
 /* animation used for dropping the microphone */
   .microphone {
       -webkit-animation: mover 6s ;
-      animation: mover 6s ;
   }
   @-webkit-keyframes mover {
       0% { transform: translateY(0); }

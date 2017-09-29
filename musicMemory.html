@@ -15,7 +15,6 @@
 </head>
 
 <body onload="record()">
-
   <div class="container">
     <h1>Music Matching Game</h1>
     <div class="sixCellRow">
@@ -31,7 +30,7 @@
           <span>Tries</span>
       </div>
       <div class="secondFromLeft">
-        <button id="startTheGame" onclick=startGame() class="button">Play Game</button>
+        <button id="startTheGame" onclick=startGame() class="buttonDisappearing" >Play Game</button>
         <button onclick="location.reload();" class="button">Refresh Game</button><br>
       </div>
       <div class="middleCell">
@@ -67,7 +66,6 @@
   </div>
 
   <script>shuffle(this.musicCardList)</script>
-
 
 
   <div id="gridContainer" >
@@ -220,5 +218,5 @@
       </div>
     </div>
   </div>
- </body>
+  </body>
 </html>
