@@ -1,0 +1,383 @@
+    /*justify-content: center;*/
+/*general structure of page*/
+
+body {
+    width: 100%;
+    height: 100%;
+    padding: 4px;
+    background: black;
+    margin-top: 0;
+    margin: 0;
+}
+
+html {
+  margin-top: 0px;
+}
+
+/*Holds the entire visible page*/
+.container {
+    background: steelblue;
+    width:100%;
+    text-align: center;
+    margin-left: 0;
+  }
+
+/*text types*/
+h1 {
+  font-family: Impact, Charcoal, sans-serif;
+  font-weight: 600;
+  font-size: 60px;
+  margin-top: 0;
+  margin-bottom: 4px;
+  height: 61px;
+  }
+
+h2 {
+  margin: 0;
+  color: #eee8aa;
+  font-size: 24px;
+  font-weight: bold;
+  display: inline;
+}
+
+span {
+  font-family: Impact, Charcoal, sans-serif;
+  font-weight: bold;
+  font-size: 24px;
+  margin-left: 0;
+}
+
+
+/*Used for instructions in top banner*/
+#instruction {
+  margin: 12px;
+  font-size: 24px;
+  font-style: italic;
+  display: flex;
+}
+
+/*Spinning record canvas on top banner*/
+#canvas {
+  background: transparent;
+  animation-name: spin;
+  animation-duration: 4000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  border: none;
+}
+
+  /*For Spinning record canvas on top banner and for spinning records on modal*/
+   @keyframes spin {
+      from {transform:rotate(0deg);}
+      to {transform:rotate(360deg);}
+   }
+
+
+  /*For Spinning record canvas on top banner and for spinning records on modal*/
+   .spin {
+     animation-name: spin;
+         animation-duration: 4000ms;
+         animation-iteration-count: infinite;
+         animation-timing-function: linear;
+   }
+
+/*Bouncing boombox canvas on top banner*/
+#canvas2 {
+ background: transparent;
+ animation-name: bounce;
+ animation-duration: 500ms;
+ animation-iteration-count: infinite;
+ animation-timing-function: linear;
+ border: 2px;
+ }
+
+   /*For Bouncing boombox canvas on top banner*/
+   @keyframes bounce {
+     100% {
+       transform: scale(1);
+     } 80% {
+       transform: scale(0.85);
+       opacity: 1;
+     } 90% {
+       transform: scale(1.2);
+       opacity: 1;
+     } 100% {
+       transform: scale(1);
+       }
+     }
+
+   /*For Bouncing boombox canvas on top banner*/
+   .bounce {
+       animation: bounce 1000ms linear infinite;
+   }
+
+  /*For stars on top right of banner*/
+  .stars {
+    width: 16px;
+  }
+
+/*For top banner beneath header*/
+.sixCellRow {
+  width: 100%;
+height: 105.33px;
+}
+
+/*Six cells in top banner in .sixCellRow*/
+  .bufferfarLeftCell {
+    float: left;
+    width: 6%;
+    height: 105.33px;
+  }
+  .farLeftCell {
+      float: left;
+      min-width: 25%;
+      margin: auto;
+      padding-left: 4px;
+      height: 105.33px
+    }
+  .secondFromLeft {
+      float: left;
+      min-width: 30%;
+      margin: auto;
+      height: 105.33px;
+      contents: center;
+      margin-top: 12px;
+    }
+  .middleCell {
+      float: left;
+      min-width: 10%;
+      height: 105.33px;
+      margin: auto;
+    }
+  .farRightCell {
+      float: left;
+      width:20%;
+      margin: auto;
+    height: 105.33px
+  }
+  .bufferfarRightCell {
+      float: right;
+      width: 4%;
+      padding-right: 16px;
+      margin: 2px;}
+
+  /*Holds the cards downward*/
+  .gridContainer {
+    background: steelblue;
+    min-height: 70px;
+  }
+
+  .grid-frame {
+    background: black;
+  }
+
+/*There are 4 of these. One row holds 4 cards*/
+/*There are 6 cells in each row. A buffer on each end and 4 cells*/
+
+  .gridRow {
+    display: flex;
+    margin:0px auto;
+    background: black
+  }
+
+  .bufferLeftCell {
+      float: left;
+      width: 10%;
+      background: black;
+  }
+
+  .firstCell {
+      float: left;
+      width: 20%;
+      min-width: 163px;
+      height: 170px;
+      min-height:45px;
+      margin: 2px;
+      background: black;
+  }
+
+  .secondCell {
+      float: left;
+      width: 20%;
+      min-width: 163px;
+      height: 170px;
+      min-height:45px;
+      margin: 2px;
+      background: black;
+  }
+
+  .thirdCell {
+      float: left;
+      width: 20%;
+      height: 170px;
+      min-height:45px;
+      margin: 2px;
+      background: black;
+
+  }
+
+  .fourthCell {
+      float: left;
+      width: 20%;
+      height: 170px;
+      min-height: 45px;
+      background: black;
+      margin: 2px;
+  }
+
+  .bufferRightCell {
+      float: right;
+      background: black;
+      width: 10%;
+  }
+
+  /*Used for float layout glitches*/
+  .clearLeft {
+    clear: left;
+    background: black;
+    width: 100%;
+    max-height: 3px;
+    padding: 2px;
+    margin: 0;
+  }
+
+/*Attribute set in javascript file for cards*/
+  .image {
+    border-style: inset;
+    border-width: thick;
+  }
+
+/*Two buttons in top banner and one on modal*/
+.button {
+  margin-top: 12px;
+  background-color: #000000;
+  border-radius: 70%;
+  border-width: thick;
+  color: silver;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-weight: bolder;
+  min-width: 100px;
+  font-size: 36px;
+}
+
+
+/* .mpopup is entire pop up modal. Includes content section*/
+.mpopup {
+    display: none;
+    position: absolute;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+}
+
+/* mpopup content has 3 sections: head, main and foot*/
+  .mpopup-content {
+      position: relative;
+      background-color: steelblue;
+      margin: auto;
+      padding: 0;
+      width: 80%;
+      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+      -webkit-animation-duration: 0.4s;
+      animation-duration: 0.4s
+  }
+
+  .mpopup-head {
+      padding: 2px 16px;
+      background-color: black;
+      color: white;
+      font-family: Impact, Charcoal, sans-serif;
+      font-size: 50px;
+  }
+
+  /* mpopup main section has 3 sections: left, middle and right*/
+  .mpopup-main {
+  padding: 2px 16px;
+  display: flex;
+  background-color: black;
+  min-height: 75%;
+  font-size: 60px;
+  margin: auto;
+  text-decoration-style: double;
+  }
+
+      /* modalLeft holds graphic which is falling microphone*/
+    .modalLeft {
+      display: inline-block;
+      background-color: black;
+      margin: auto;
+      min-width: 25%;
+    }
+    /* modalMiddle holds main modal content*/
+    .modalMiddle {
+      display: inline-block;
+      background-color: steelblue;
+      min-width: 70%;
+      margin-left: 10px;
+    }
+    /* modalRight serves as an empty buffer*/
+    .modalRight {
+      display: inline-block;
+      background-color: black;
+      min-width: 5%;
+    }
+
+  /* mpopup foot is bottom section of content section and thus modal box overall*/
+  .mpopup-foot {
+      padding: 2px 16px;
+      background-color: black;
+      color: #ffffff;
+      font-size: medium;
+      font-style: italic;
+  }
+
+/* Class for 3 canvases on modal for stars*/
+/* Stars represented by spinning records*/
+  .modalStars {
+    width: 25%;
+    display: inline-block;
+    background: transparent;
+    animation-name: spin;
+    animation-duration: 4000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    border: none;
+   }
+
+
+  /* close button style */
+  .close {
+      color: steelblue;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+  }
+  .close:hover, .close:focus {
+      color: #000;
+      text-decoration: none;
+      cursor: pointer;
+  }
+
+/* microphone used on left side of modal */
+/* animation used for dropping the microphone */
+  .microphone {
+      -webkit-animation: mover 6s ;
+      animation: mover 6s ;
+  }
+  @-webkit-keyframes mover {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-60px); }
+  }
+  @keyframes mover {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-60px); }
+  }
